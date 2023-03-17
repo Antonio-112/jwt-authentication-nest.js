@@ -1,73 +1,85 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+<h1>API de Autenticación con JWT y MongoDB</h1>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Este repositorio contiene una API de autenticación utilizando JWT (JSON Web Tokens) y MongoDB como base de datos, implementada con NestJS.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+La API permite a los usuarios registrarse e iniciar sesión en la aplicación. Al registrarse o iniciar sesión con éxito, se devuelve un token de acceso JWT que puede utilizarse para autenticarse en rutas protegidas.
 
-## Description
+<h2>Características</h2>
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- Registro de usuarios
+- Inicio de sesión de usuarios
+- Autenticación y autorización con JWT
+- Integración con MongoDB
+- Documentación de API con Swagger
 
-## Installation
+<h2>Requisitos previos</h2>
 
-```bash
-$ npm install
-```
+- Node.js
+- MongoDB
 
-## Running the app
+<h2>Instalación</h2>
 
-```bash
-# development
-$ npm run start
+1. Clona este repositorio:
 
-# watch mode
-$ npm run start:dev
+<pre>
+git clone https://github.com/<tu-usuario>/api-auth-jwt-mongodb.git
+</pre>
 
-# production mode
-$ npm run start:prod
-```
+2. Cambia al directorio del proyecto:
 
-## Test
+<pre>
+cd api-auth-jwt-mongodb
+</pre>
 
-```bash
-# unit tests
-$ npm run test
+3. Instala las dependencias:
 
-# e2e tests
-$ npm run test:e2e
+<pre>
+npm install
+</pre>
 
-# test coverage
-$ npm run test:cov
-```
+4. Configura las variables de entorno. Copia el archivo .env.example a .env y actualiza las variables según sea necesario:
 
-## Support
+<pre>
+cp .env.example .env
+</pre>
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+5. Inicia la API:
 
-## Stay in touch
+<pre>
+npm run start
+</pre>
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+La API estará disponible en http://localhost:3000. Puedes acceder a la documentación de Swagger en http://localhost:3000/api.
 
-## License
+<h2>Uso</h2>
 
-Nest is [MIT licensed](LICENSE).
+<h3>Registro</h3>
+
+Realiza una petición POST a /auth/register con los siguientes parámetros:
+
+- username: Nombre de usuario (string)
+- email: Correo electrónico (string, formato de correo electrónico)
+- password: Contraseña (string)
+
+Si el registro es exitoso, recibirás un token de acceso JWT.
+
+<h3>Inicio de sesión</h3>
+
+Realiza una petición POST a /auth/login con los siguientes parámetros:
+
+- email: Correo electrónico (string, formato de correo electrónico)
+- password: Contraseña (string)
+
+Si el inicio de sesión es exitoso, recibirás un token de acceso JWT.
+
+<h3>Autenticación y autorización</h3>
+
+Para acceder a rutas protegidas, incluye el token de acceso JWT en el encabezado de autorización de tus solicitudes como un Bearer Token:
+
+<pre>
+Authorization: Bearer <tu-token-jwt>
+</pre>
+
+<h2>Licencia</h2>
+
+Este proyecto se encuentra bajo la <a href="LICENSE">Licencia MIT</a>.
