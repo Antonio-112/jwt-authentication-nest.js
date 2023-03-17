@@ -10,10 +10,7 @@ import { VerificationModule } from './verification/verification.module';
     ConfigModule.forRoot({
       isGlobal: true,
     }),
-    MongooseModule.forRoot(
-      process.env.MONGO_URI ||
-        'mongodb+srv://dbUser:Admin@cluster0.x0yn4gc.mongodb.net/?retryWrites=true&w=majority',
-    ),
+    MongooseModule.forRoot(process.env.MONGO_URI || ''),
     AuthModule,
     UsersModule,
     VerificationModule,
