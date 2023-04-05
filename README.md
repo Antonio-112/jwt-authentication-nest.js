@@ -27,6 +27,7 @@ git clone https://github.com/<tu-usuario>/api-auth-jwt-mongodb.git
 
 2. Cambia al directorio del proyecto:
 
+
 <pre>
 cd api-auth-jwt-mongodb
 </pre>
